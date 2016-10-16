@@ -88,7 +88,7 @@ def renderResultOnImage( result, img ):
 # img = os.path.expanduser('~/Development/sentiEdu/learning/imgs/4.jpg')
 folder = 'imgs'
 count = 0
-data_file = open('data.json', 'a')
+data_file = open('data.json', 'w')
 for img in os.listdir(folder):
   count += 1
   if count < 20:
@@ -103,22 +103,23 @@ for img in os.listdir(folder):
         json = None
         params = None
         start = time.time()
-        result = processRequest( json, data, headers, params )
+        print(start)
+        # result = processRequest( json, data, headers, params )
         print('-------------')
         print('request time: %s', time.time() - start)
         print(os.path.join(folder, img))
-        if result is not None:
-          print(result)
-          data_file.write(str(result))
-          print('-------------')
-          # Load the original image from disk
-          # data8uint = np.fromstring( data, np.uint8 ) # Convert string to an unsigned int array
-          # img = cv2.cvtColor( cv2.imdecode( data8uint, cv2.IMREAD_COLOR ), cv2.COLOR_BGR2RGB )
+        # if result is not None:
+        #   print(result)
+        #   data_file.write(result)
+        print('-------------')
+        # Load the original image from disk
+        # data8uint = np.fromstring( data, np.uint8 ) # Convert string to an unsigned int array
+        # img = cv2.cvtColor( cv2.imdecode( data8uint, cv2.IMREAD_COLOR ), cv2.COLOR_BGR2RGB )
 
-          # renderResultOnImage( result, img )
+        # renderResultOnImage( result, img )
 
-          # ig, ax = plt.subplots(figsize=(15, 20))
-          # ax.imshow( img )
+        # ig, ax = plt.subplots(figsize=(15, 20))
+        # ax.imshow( img )
   else:
-    time.sleep(60)
+    time.sleep(3)
     count = 0
