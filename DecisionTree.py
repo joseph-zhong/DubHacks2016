@@ -42,6 +42,6 @@ testarray = [[q["scores"]["sadness"], q["scores"]["neutral"], q["scores"]["conte
 #output
 retval = clf.predict_proba([[]])
 # sample test array as input
-
-print(retval)
+# sample retval: [[ 0.  1.]]
+# [[confidence lvl, 1 being confused, 0 being non-confused]]
 return retval
