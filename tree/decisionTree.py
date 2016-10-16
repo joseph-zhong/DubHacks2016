@@ -1,3 +1,4 @@
+from firebase import firebase
 import os
 import sys
 import json
@@ -87,6 +88,10 @@ def run_inference(in_meta):
     face['isConfused'] = bool(retval[0][1])
     face['timeStamp'] = datetime.datetime.now().isoformat()
     out_meta.append(face)
+    
+    firebase = firebase.FirebaseApplication('https://dubhacks2016-e1d3e.firebaseio.com', None)
+    result = firebase.post('/algoRetVal', out_meta)
+    
   print out_meta
   try:
     ret = jsonify(results=out_meta)
