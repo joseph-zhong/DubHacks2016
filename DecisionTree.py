@@ -18,7 +18,7 @@ for i in s1:
 
 # for confused faces
 for k in X:
-    Y.append(]1)
+    Y.append(1)
 
 for j in s2:
     ListofScores = [j["scores"]["sadness"], j["scores"]["neutral"], j["scores"]["contempt"], j["scores"]["disgust"], j["scores"]["anger"], j["scores"]["surprise"], j["scores"]["fear"], j["scores"]["happiness"]]
