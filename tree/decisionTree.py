@@ -10,14 +10,14 @@ from flask import Flask, request, session, g, redirect, url_for, abort, render_t
 global _clf
 
 def init_tree():
-  confused_json_file = open('learning/confused.json')
+  confused_json_file = open('confused.json')
   confused_json = json.load(confused_json_file)
   # confused_json = []
   #s1 is a collection of confused people's expressions, a listof dict of dict. Example below:
   #[{'faceRectangle': {'width': 109, 'top': 46, 'left': 33, 'height': 109}, 'scores': {'sadness': 2.90334774e-05, 'neutral': 0.00651574042, 'contempt': 0.523489058, 'disgust': 0.09046922, 'anger': 0.379367054, 'surprise': 4.37496565e-05, 'fear': 1.00170464e-05, 'happiness': 7.611594e-05}},
   #{'faceRectangle': {'width': 62, 'top': 45, 'left': 129, 'height': 62}, 'scores': {'sadness': 0.113303773, 'neutral': 0.853158, 'contempt': 0.01196574, 'disgust': 0.000523155148, 'anger': 0.000127134219, 'surprise': 0.0093042925, 'fear': 0.0115389889, 'happiness': 7.892302e-05}},
 
-  non_confused_json_file = open('learning/non_confused.json')
+  non_confused_json_file = open('non_confused.json')
   non_confused_json = json.load(non_confused_json_file)
   # non_confused_json = json.loads("[{\"faceRectangle\": {\"width\": 80, \"top\": 100, \"left\": 60, \"height\": 80}, \"scores\": {\"sadness\": 0.04439014, \"neutral\": 0.0269380286, \"contempt\": 0.0003618349, \"disgust\": 0.00420662528, \"anger\": 0.0133874584, \"surprise\": 0.008364636, \"fear\": 0.000818703556, \"happiness\": 0.9015326}},{\"faceRectangle\": {\"width\": 83, \"top\": 53, \"left\": 129, \"height\": 83}, \"scores\": {\"sadness\": 0.0149835153, \"neutral\": 0.204278871, \"contempt\": 0.00396447768, \"disgust\": 0.004335659, \"anger\": 0.007595688, \"surprise\": 0.003997222, \"fear\": 0.00222551054, \"happiness\": 0.75861907}}]")
 
