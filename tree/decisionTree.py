@@ -1,4 +1,4 @@
-from firebase import Firebase
+import firebase
 import os
 import sys
 import json
@@ -6,6 +6,9 @@ import json
 import datetime
 from sklearn import tree
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash, jsonify
+global _firebase
+_firebase = firebase.firebase.FirebaseApplication('https://dubhacks2016-e1d3e.firebaseio.com', None)
+
 
 #### Decision Tree initialization steps
 global _clf
@@ -48,7 +51,7 @@ def init_tree():
 
 
 def run_inference(in_meta):
-  firebase = firebase.FirebaseApplication('https://dubhacks2016-e1d3e.firebaseio.com', None)
+
   """
 
   :param in_meta: single face metadata dict with 'scores' with
@@ -72,7 +75,7 @@ def run_inference(in_meta):
 
   #output
   global _clf
-
+  global _firebase
   out_meta = []
   for face in in_meta:
     score = [
@@ -91,7 +94,7 @@ def run_inference(in_meta):
     retval = _clf.predict_proba(score)
     face['isConfused'] = bool(retval[0][1])
     face['timeStamp'] = datetime.datetime.now().isoformat()
-    result = firebase.post('/algoRetVal', [face['isConfused'], face['timeStamp']])
+    result = _firebase.post('/algoRetVal', [face['isConfused'], face['timeStamp']])
     out_meta.append(face)
     
 
