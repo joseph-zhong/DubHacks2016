@@ -3,7 +3,7 @@ import matplotlib.pyplot as pp
 import os
 import json
 
-data_file = open('./confused.json', 'r')
+data_file = open('./non_confused.json', 'r')
 str = ""
 for line in data_file:
   str += line

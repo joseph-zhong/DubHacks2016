@@ -88,7 +88,7 @@ def renderResultOnImage( result, img ):
 # img = os.path.expanduser('~/Development/sentiEdu/learning/confusedImgs/4.jpg')
 folder = 'notConfusedImgs'
 count = 0
-data_file = open('not_confused.json', 'a')
+data_file = open('non_confused.json', 'a')
 for img in os.listdir(folder):
   count += 1
   if count < 20:
