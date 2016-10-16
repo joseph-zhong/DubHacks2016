@@ -2,6 +2,7 @@ import firebase
 import os
 import sys
 import json
+import time
 
 import datetime
 from sklearn import tree
@@ -93,7 +94,7 @@ def run_inference(in_meta):
 
     retval = _clf.predict_proba(score)
     face['isConfused'] = bool(retval[0][1])
-    face['timeStamp'] = datetime.datetime.now().isoformat()
+    face['timeStamp'] = time.time() * 1000
     result = _firebase.post('/algoRetVal', [face['isConfused'], face['timeStamp']])
     out_meta.append(face)
     
