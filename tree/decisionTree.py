@@ -103,6 +103,12 @@ init_tree()
 app = Flask(__name__)
 # app.config.from_envvar('FLASKR_SETTINGS', silent=True)
 
+
+@app.route('/', methods=['GET'])
+def qwer():
+  return 'hello'
+
+
 @app.route('/predictConfusion', methods=['POST'])
 def predictConfusion():
   in_meta = json.loads(request.data.decode())
