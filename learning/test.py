@@ -85,10 +85,10 @@ def renderResultOnImage( result, img ):
     textToWrite = "%s" % ( currEmotion )
     cv2.putText( img, textToWrite, (faceRectangle['left'],faceRectangle['top']-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255,0,0), 1 )
 
-# img = os.path.expanduser('~/Development/sentiEdu/learning/imgs/4.jpg')
-folder = 'imgs'
+# img = os.path.expanduser('~/Development/sentiEdu/learning/confusedImgs/4.jpg')
+folder = 'confusedImgs'
 count = 0
-data_file = open('data.json', 'w')
+data_file = open('confused.json', 'w')
 for img in os.listdir(folder):
   count += 1
   if count < 20:
