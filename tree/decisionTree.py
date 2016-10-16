@@ -1,4 +1,4 @@
-from firebase import firebase
+from firebase import Firebase
 import os
 import sys
 import json
@@ -48,6 +48,7 @@ def init_tree():
 
 
 def run_inference(in_meta):
+  firebase = firebase.FirebaseApplication('https://dubhacks2016-e1d3e.firebaseio.com', None)
   """
 
   :param in_meta: single face metadata dict with 'scores' with
@@ -84,13 +85,16 @@ def run_inference(in_meta):
               face['scores']['fear'],
               face['scores']['happiness']
             ]
+
+
+
     retval = _clf.predict_proba(score)
     face['isConfused'] = bool(retval[0][1])
     face['timeStamp'] = datetime.datetime.now().isoformat()
+    result = firebase.post('/algoRetVal', [face['isConfused'], face['timeStamp']])
     out_meta.append(face)
     
-    firebase = firebase.FirebaseApplication('https://dubhacks2016-e1d3e.firebaseio.com', None)
-    result = firebase.post('/algoRetVal', out_meta)
+
     
   print out_meta
   try:
