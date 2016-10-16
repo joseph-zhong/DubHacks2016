@@ -15,4 +15,4 @@ clf = tree.DecisionTreeClassifier()
 clf = clf.fit(X, Y)
 
 #output
-retval = clf.predict([[test val]])
+retval = clf.predict_proba([[test val]])
