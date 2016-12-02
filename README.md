@@ -60,7 +60,7 @@ When students are having difficulting understanding lecture concepts, it can be 
   - Face Recognition
   - Emotion Analysis
 - [Scikit Learn](http://scikit-learn.org/)
-- ~MongoDB~ Firebase
+- ~~MongoDB~~ Firebase
   - Student Profile
 - UI
   - Webapp
