@@ -77,7 +77,7 @@ When students are having difficulting understanding lecture concepts, it can be 
 
 ### Future Features
 
-1. ~Student Profile Webapp~ Implemented!
+1. ~~Student Profile Webapp~~ Implemented!
 2. Student Profile HL interaction
 
 ### Trade Off Analysis
