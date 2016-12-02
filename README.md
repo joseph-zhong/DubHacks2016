@@ -1,10 +1,41 @@
 # DubHacks2016
 
-Face Sentiment Analysis to Improve Education
-
-
+Student Sentiment analysis for feedback to teachers
 
 ## General
+
+- [Devpost Competition Submission](https://devpost.com/software/dubhacks2016-yvzcfb)
+- *Qualtrics Best Data Visualization Award Winner!*
+
+### Workflow
+
+0. `learning/classification.py`, `learning/scilearn.py`, `learning/clarifai.js`, `learning/KNearest.py` and `learning/scrape.py` will not be helpful
+1. `learning/Gscrape.js`: From simple Google Image searches in browser, capture the image srcs
+    - `learning/1029384710239847` and `learning/listOfImgs` are examples of images to be downloaded 
+2. `learning/download[NotConfused]imgs.py`: Download images
+3. `learning/[notConfused]cognitiveService.py`: Generate dataset of sentiments per image
+    - Generates `tree/confused.json` and `tree/non_confused.json` for building the decision tree later on
+4. `learning/plot.py`: Plot sentiment values 
+5. `tree/decisionTree.py`: Run server to begin reading inputs from Hololens and providing sentiment feedback!    
+    - Hosted on MSFT Azure VM since Heroku did not support Scikit Learn
+
+### Roadmap
+
+- `Gscrape.js`: Outputs image sources in current webpage (Google Images) 
+- [learning](learning) Primarily experiment/data-mining code
+    - [`test.py`](learning/test.py): Initial file to test the MSFT Cognitive API
+    - [`ConfusedCognitiveService.py`](learning/ConfusedCognitiveService.py): Script to build dataset of confused samples into `tree/confused.json` and `tree/non_confused.json`
+        - Simple Visualization for eye-balling whether there exists a pattern between "Confused" and "Non-confused"
+            - Confused [Visualized](learning/confused.png)
+            - Non-Confused [Visualized](learning/non_confused.png)
+                - See [`plot.py`](learning/plot.py)
+                - Each plot on the y-axis is an emotion from the Cognitive API
+                    - anger, contempt, disgust, fear, happiness, neutral, sadness, surprise
+                - x-axis represents value from 0 to 1
+- [tree](tree) Code built off of experiments and put into the server for demoing
+    - [`decisionTree.py`](tree/decisionTree.py): Server to build Sci-kit Learn decision tree
+        - [`confused.json`](tree/confused.json): Confused dataset
+        - [`non_confused.json`](tree/non_confused.json): Non Confused dataset
 
 ### Context
 
@@ -21,21 +52,20 @@ When students are having difficulting understanding lecture concepts, it can be 
 
 
 
-
-
-
 ## Tech
 
 - Hololens Headset (Input)
 - OpenCV API (Face Detection)
-- MSFT Cognitive API
+- [MSFT Cognitive API](https://www.microsoft.com/cognitive-services/en-us/emotion-api)
   - Face Recognition
   - Emotion Analysis
-- MongoDB
+- [Scikit Learn](http://scikit-learn.org/)
+- ~MongoDB~ Firebase
   - Student Profile
 - UI
   - Webapp
   - Hololens AR livestream
+    - (Different repository)
 
 ### MVP 
 
@@ -47,7 +77,7 @@ When students are having difficulting understanding lecture concepts, it can be 
 
 ### Future Features
 
-1. Student Profile Webapp
+1. ~Student Profile Webapp~ Implemented!
 2. Student Profile HL interaction
 
 ### Trade Off Analysis
