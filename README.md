@@ -21,8 +21,8 @@ Student Sentiment analysis for feedback to teachers
 
 ### Roadmap
 
-- `Gscrape.js`: Outputs image sources in current webpage (Google Images) 
 - [learning](learning) Primarily experiment/data-mining code
+    - [`Gscrape.js`](learning/Gscrape.js): Outputs image sources in current webpage (Google Images) 
     - [`test.py`](learning/test.py): Initial file to test the MSFT Cognitive API
     - [`ConfusedCognitiveService.py`](learning/ConfusedCognitiveService.py): Script to build dataset of confused samples into `tree/confused.json` and `tree/non_confused.json`
         - Simple Visualization for eye-balling whether there exists a pattern between "Confused" and "Non-confused"
