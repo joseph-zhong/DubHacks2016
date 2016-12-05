@@ -5,7 +5,7 @@ Student Sentiment analysis for feedback to teachers
 ## General
 
 - [Devpost Competition Submission](https://devpost.com/software/dubhacks2016-yvzcfb)
-- *Qualtrics Best Data Visualization Award Winner!*
+- **DubHacks 2016: Qualtrics Best Data Visualization Award Winner!**
 
 ### Workflow
 
