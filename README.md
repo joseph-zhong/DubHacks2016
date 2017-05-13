@@ -39,7 +39,7 @@ Student Sentiment analysis for feedback to teachers
 
 ### Context
 
-Teachers care about teaching. They want the best for the students
+Teachers care about teaching. They want the best for the students.
 
 It can sometimes be difficult for teachers to best achieve this, and with increasing classroom sizes with more students attending college than ever before, the pressure and responsibility has never been greater. 
 When students are having difficulting understanding lecture concepts, it can be difficult for teachers to consistently identify this, especially as they're focusing on the lecture concepts. At the intersection of image feature recognition as well as the revolution in Augmented and Virtual reality, we can leverage the Hololens' headset to capture student's and audience sentiment, and provide realtime feedback for the lecturer.
